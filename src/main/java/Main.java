@@ -1,10 +1,8 @@
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please input your salary and we can calculate the taxes!");
-        double salary = scanner.nextDouble();
+    public static double calculateTax(double salary) {
+
         double taxes = 0;
         double salaryCalc = salary;
         double temp;
@@ -43,6 +41,17 @@ public class Main {
 
         //No need for code for taxes between 0 and 14,999 since it is 0.
 
-        System.out.println("Your taxes are " + taxes);
+        return taxes;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Please input your salary and we can calculate the taxes!");
+        double salary = scanner.nextDouble();
+
+        System.out.println("Your taxes are " + calculateTax(salary));
+
     }
 }
