@@ -4,7 +4,7 @@ public class Main {
     public static double calculateTax(double salary) {
 
         if (salary < 0) {
-            System.err.println("Salary cannot be negative");
+            // System.err.println("Salary cannot be negative");
             throw new IllegalArgumentException("Salary cannot be negative");
         }
 
@@ -51,10 +51,22 @@ public class Main {
 
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Please input your salary and we can calculate the taxes!");
-        double salary = scanner.nextDouble();
+        double salary = 0;
+        boolean valid = false;
+
+        while (!valid) {
+            System.out.println("Please input your salary and we can calculate the taxes!");
+            try {
+                salary = scanner.nextDouble();
+                valid = true;
+            } catch (Exception e){
+                System.out.println("Invalid input, please try again");
+                scanner.nextLine();
+            }
+        }
 
         System.out.println("Your taxes are " + calculateTax(salary));
 
