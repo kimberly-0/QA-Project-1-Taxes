@@ -74,4 +74,10 @@ class MainTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testNegativeInput() {
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> Main.calculateTax(-50000));
+        assertTrue(thrown.getMessage().contains("Salary cannot be negative"));
+    }
+
 }
