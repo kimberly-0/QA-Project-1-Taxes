@@ -3,6 +3,11 @@ public class Main {
 
     public static double calculateTax(double salary) {
 
+        if (salary < 0) {
+            System.err.println("Salary cannot be negative");
+            throw new IllegalArgumentException("Salary cannot be negative");
+        }
+
         double taxes = 0;
         double salaryCalc = salary;
         double temp;
